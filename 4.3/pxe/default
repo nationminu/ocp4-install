@@ -1,0 +1,33 @@
+default menu.c32
+prompt 0
+timeout 60
+ONTIMEOUT local
+menu title OpenShift v4.x PXE (Rockplace Inc.)
+label 1
+  menu label ^Install Bootstrap (Static IP)
+  kernel rhcos/4.3/rhcos-4.3.8-x86_64-installer-kernel-x86_64
+  append ip=dhcp rd.neednet=1 console=tty0 console=ttyS0 coreos.inst=yes coreos.inst.install_dev=sda initrd=rhcos/4.3/rhcos-4.3.8-x86_64-installer-initramfs.x86_64.img coreos.inst.image_url=http://10.65.40.244/rhcos/4.3/rhcos-4.3.8-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://10.65.40.244/ignition/bootstrap.ign
+label 2
+  menu label ^Install Master (Static IP)
+  kernel rhcos/4.3/rhcos-4.3.8-x86_64-installer-kernel-x86_64
+  append ip=dhcp rd.neednet=1 console=tty0 console=ttyS0 coreos.inst=yes coreos.inst.install_dev=sda initrd=rhcos/4.3/rhcos-4.3.8-x86_64-installer-initramfs.x86_64.img coreos.inst.image_url=http://10.65.40.244/rhcos/4.3/rhcos-4.3.8-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://10.65.40.244/ignition/master.ign
+label 3
+  menu label ^Install Ingress (Static IP)
+  kernel rhcos/4.3/rhcos-4.3.8-x86_64-installer-kernel-x86_64
+  append ip=dhcp rd.neednet=1 console=tty0 console=ttyS0 coreos.inst=yes coreos.inst.install_dev=sda initrd=rhcos/4.3/rhcos-4.3.8-x86_64-installer-initramfs.x86_64.img coreos.inst.image_url=http://10.65.40.244/rhcos/4.3/rhcos-4.3.8-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://10.65.40.244/ignition/ingress.ign
+label 4
+  menu label ^Install Ingress (Static IP)
+  kernel rhcos/4.3/rhcos-4.3.8-x86_64-installer-kernel-x86_64
+  append ip=dhcp rd.neednet=1 console=tty0 console=ttyS0 coreos.inst=yes coreos.inst.install_dev=sda initrd=rhcos/4.3/rhcos-4.3.8-x86_64-installer-initramfs.x86_64.img coreos.inst.image_url=http://10.65.40.244/rhcos/4.3/rhcos-4.3.8-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://10.65.40.244/ignition/worker.ign
+label 5
+  menu label ^Install Simple Coreos
+  kernel rhcos/4.3/rhcos-4.3.8-x86_64-installer-kernel-x86_64
+  append ip=dhcp rd.neednet=1 console=tty0 console=ttyS0 coreos.inst=yes coreos.inst.install_dev=sda initrd=rhcos/4.3/rhcos-4.3.8-x86_64-installer-initramfs.x86_64.img coreos.inst.image_url=http://10.65.40.244/rhcos/4.3/rhcos-4.3.8-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://10.65.40.244/ignition/simple.ign
+label 8
+menu label ^Install RHEL 7.7 Installer(x86_64)
+  kernel rhel/7/images/pxeboot/vmlinuz
+  append initrd=rhel/7/images/pxeboot/initrd.img inst.repo=http://10.65.40.244/rhel/7/images/iso
+label 9
+menu label ^Install RHEL 7.7 Server GUI(x86_64)
+  kernel rhel/7/images/pxeboot/vmlinuz
+  append initrd=rhel/7/images/pxeboot/initrd.img inst.ks=http://10.65.40.244/rhel/7/kickstart/server-gui.cfg
