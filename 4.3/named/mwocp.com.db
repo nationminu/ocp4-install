@@ -11,19 +11,18 @@ $TTL 1
 ;       name    servers - A records
 ;@       IN      A       10.65.40.70
 
-bastion         IN      A       10.65.40.244 
-registry        IN      A       10.65.40.244 
-ns              IN      A       10.65.40.244 
-nfs             IN      A       10.65.40.244
+bastion         IN      A       10.65.40.254 
+registry        IN      A       10.65.40.254 
+ns              IN      A       10.65.40.254 
+nfs             IN      A       10.65.40.254
 
-loadbalancer    IN      A       10.65.40.248 
-*.apps          IN      A       10.65.40.248
+loadbalancer    IN      A       10.65.40.245 
+*.apps          IN      A       10.65.40.245
 
-api             IN      A       10.65.40.248
-api-int         IN      A       10.65.40.248
+api             IN      A       10.65.40.245
+api-int         IN      A       10.65.40.245
 
-boostrap        IN      A       10.65.40.249
-
+boostrap        IN      A       10.65.40.246 
 
 master01        IN      A       10.65.40.251
 master02        IN      A       10.65.40.252
@@ -33,10 +32,10 @@ etcd-0          IN      A       10.65.40.251
 etcd-1          IN      A       10.65.40.252
 etcd-2          IN      A       10.65.40.253
 
-infra1          IN      A       10.65.40.245
-infra2          IN      A       10.65.40.246
+infra01          IN      A       10.65.40.247
+infra02          IN      A       10.65.40.248
 
-worker1         IN      A       10.65.40.247
+worker01         IN      A       10.65.40.249
 
 ;
 ; - RefURL
