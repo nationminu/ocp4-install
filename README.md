@@ -1,5 +1,5 @@
 # ocp4-install
-'''
+```
 export BUILDNUMBER=$(curl -s https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/release.txt | grep 'Name:' | awk '{print $NF}')
 export BUILDNUMBER=$(curl -s https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/release.txt | grep 'Name:' | awk '{print $NF}')
 
@@ -121,4 +121,4 @@ https://docs.openshift.com/container-platform/4.3/machine_management/adding-rhel
         node-role.kubernetes.io/infra: ""
 
 https://docs.openshift.com/container-platform/4.4/machine_management/creating-infrastructure-machinesets.html        
-'''
+```
