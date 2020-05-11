@@ -1,0 +1,48 @@
+$TTL 1
+@       IN      SOA     mwocp.com.      admin.mwocp.com. (
+        7 ; Serial
+        21600 ; Refresh after 6 hours
+        3600 ; Retry after 1 hour
+        604800 ; Expire after 1 week
+        86400 ; minimum TTL of 1 day
+);
+;       name    servers -       NS      records
+@       IN      NS      ns.mwocp.com.
+;       name    servers - A records
+;@       IN      A       10.65.40.70
+
+bastion         IN      A       10.65.40.244 
+registry        IN      A       10.65.40.244 
+ns              IN      A       10.65.40.244 
+nfs             IN      A       10.65.40.244
+
+loadbalancer    IN      A       10.65.40.248 
+*.apps          IN      A       10.65.40.248
+
+api             IN      A       10.65.40.248
+api-int         IN      A       10.65.40.248
+
+boostrap        IN      A       10.65.40.249
+
+
+master01        IN      A       10.65.40.251
+master02        IN      A       10.65.40.252
+master03        IN      A       10.65.40.253
+
+etcd-0          IN      A       10.65.40.251
+etcd-1          IN      A       10.65.40.252
+etcd-2          IN      A       10.65.40.253
+
+infra1          IN      A       10.65.40.245
+infra2          IN      A       10.65.40.246
+
+worker1         IN      A       10.65.40.247
+
+;
+; - RefURL
+; https://docs.openshift.com/container-platform/4.2/installing/installing_bare_metal/installing-bare-metal.html#installation-dns-user-infra_installing-bare-metal
+;
+; service._proto.name.          TTL     class   SRV     priority        weight  port    target.
+_etcd-server-ssl._tcp           1       IN      SRV     0               10      2380    etcd-0.mwocp.com.
+_etcd-server-ssl._tcp           1       IN      SRV     0               10      2380    etcd-1.mwocp.com.
+_etcd-server-ssl._tcp           1       IN      SRV     0               10      2380    etcd-2.mwocp.com.
